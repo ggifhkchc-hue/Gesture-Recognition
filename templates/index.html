@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 智能手势控制系统 - Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+            color: #38bdf8;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+            font-size: 2.2rem;
+        }
+
+        p.subtitle {
+            color: #94a3b8;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .container {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #38bdf8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+            background-color: #000;
+            width: 640px;
+            height: 480px;
+        }
+
+        .video-wrapper img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .status-bar {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .status-card {
+            background-color: #0f172a;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            text-align: center;
+            flex: 1;
+        }
+
+        .status-card .label {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-card .value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #38bdf8;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GestureControl System</h1>
+    <p class="subtitle">基于 Mediapipe & Flask 的实时手势流处理系统</p>
+
+    <div class="container">
+        <!-- 核心：这个 <img> 标签会持续向 /video_feed 请求帧，自动渲染视频 -->
+        <div class="video-wrapper">
+            <img src="/video_feed" alt="实时视频流加载中...">
+        </div>
+
+        <div class="status-bar">
+            <div class="status-card">
+                <div class="label">工作模式</div>
+                <div class="value">Web 实时串流</div>
+            </div>
+            <div class="status-card">
+                <div class="label">系统延迟</div>
+                <div class="value" style="color: #4ade80;">极低</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
